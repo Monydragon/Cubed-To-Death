@@ -5,7 +5,8 @@ using UnityEngine;
 public class PrefabSpawner : MonoBehaviour
 {
     public List<Transform> spawnPoints;
-    public int spawnAmount = 5;
+    public int spawnAmountMin = 5;
+    public int spawnAmountMax = 10;
     public List<GameObject> spawnPrefabs;
     public bool constantSpawn = true;
     public float spawnTime = 2.5f;
@@ -52,6 +53,7 @@ public class PrefabSpawner : MonoBehaviour
 
     public void Spawn()
     {
+        var spawnAmount = Random.Range(spawnAmountMin, spawnAmountMax + 1);
         for (int i = 0; i < spawnAmount; i++)
         {
         RANDSPAWN:
@@ -60,7 +62,7 @@ public class PrefabSpawner : MonoBehaviour
             {
                 if (usedSpawnPoints.Count >= spawnPoints.Count)
                 {
-                    return;
+                    usedSpawnPoints.Clear();
                 }
                 else
                 {
@@ -71,7 +73,6 @@ public class PrefabSpawner : MonoBehaviour
             Instantiate(randomPrefab, spawnPoints[randSpawn]);
             usedSpawnPoints.Add(spawnPoints[randSpawn]);
         }
-        usedSpawnPoints.Clear();
     }
 
     private void EventManager_onLevelFail(int value)
