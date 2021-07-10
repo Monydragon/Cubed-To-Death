@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 using TMPro;
 
 public class UIController : MonoBehaviour
@@ -13,6 +14,12 @@ public class UIController : MonoBehaviour
     public GameObject gameoverPanel;
     public GameObject levelCompletePanel;
     public GameObject pauseMenuPanel;
+    public Slider bgmSlider;
+    public Slider sfxSlider;
+    public Toggle bgmMuteToggle;
+    public Toggle sfxMuteToggle;
+    public TMP_Text bgmSliderText;
+    public TMP_Text sfxSliderText;
 
     private void OnEnable()
     {
@@ -127,5 +134,15 @@ public class UIController : MonoBehaviour
     private void EventManager_onGamePaused()
     {
         pauseMenuPanel.SetActive(true);
+    }
+
+    public void UpdateBgmText()
+    {
+        bgmSliderText.text = $"BGM: {Mathf.RoundToInt(bgmSlider.value * 100)}%";
+    }
+
+    public void UpdateSfxText()
+    {
+        sfxSliderText.text = $"SFX: {Mathf.RoundToInt(sfxSlider.value * 100)}%";
     }
 }
