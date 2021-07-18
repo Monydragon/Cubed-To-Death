@@ -16,11 +16,11 @@ public class AudioManager : MonoBehaviour
         {
             instance = this;
         }
-        else if (instance != this)
-        {
-            Destroy(gameObject);
-        }
-        DontDestroyOnLoad(gameObject);
+        //else if (instance != this)
+        //{
+        //    Destroy(gameObject);
+        //}
+        //DontDestroyOnLoad(gameObject);
     }
 
     private void Start()
@@ -31,7 +31,6 @@ public class AudioManager : MonoBehaviour
         mixer.SetFloat("Master", Mathf.Log10(masterVol) * 20);
         mixer.SetFloat("BGM", Mathf.Log10(bgmVol) * 20);
         mixer.SetFloat("SFX", Mathf.Log10(sfxVol) * 20);
-
     }
 
     public void PlayBGM(AudioClip clip)
@@ -94,7 +93,6 @@ public class AudioManager : MonoBehaviour
     {
         mixer.SetFloat("Master", Mathf.Log10(vol) * 20);
         PlayerPrefs.SetFloat("Master_Volume", Mathf.Log10(vol) * 20);
-
     }
 
     public void SetBGMVol(float vol)

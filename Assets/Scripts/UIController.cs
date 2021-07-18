@@ -72,6 +72,7 @@ public class UIController : MonoBehaviour
         GameManager.instance.score = 0;
         EventManager.ScoreChanged();
         EventManager.LevelStart(SceneManager.GetActiveScene().buildIndex);
+        Debug.Log($"Score Set: {GameManager.instance.score}");
     }
 
     public void LoadNextScene()
