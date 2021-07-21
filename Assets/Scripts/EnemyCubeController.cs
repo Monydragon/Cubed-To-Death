@@ -7,10 +7,12 @@ public class EnemyCubeController : MonoBehaviour
 {
     public float despawnTimer = 3f;
     public int scoreValue = 5;
+
     // Start is called before the first frame update
     void Start()
     {
-        Destroy(gameObject, despawnTimer);
+        StartCoroutine(TimedDestroy());
+        //Destroy(gameObject, despawnTimer);
     }
 
     // Update is called once per frame
@@ -29,12 +31,20 @@ public class EnemyCubeController : MonoBehaviour
         }
     }
 
-    private void OnDestroy()
+    public IEnumerator TimedDestroy()
     {
-        if(GameManager.instance.gameState == GameManager.GameState.Playing)
+        yield return new WaitForSeconds(despawnTimer);
+
+        if (GameManager.instance.gameState == GameManager.GameState.Playing)
         {
             GameManager.instance.score += scoreValue;
             EventManager.ScoreChanged();
         }
+        Destroy(gameObject);
+    }
+
+    private void OnDestroy()
+    {
+        StopCoroutine(TimedDestroy());
     }
 }
