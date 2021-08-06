@@ -6,6 +6,7 @@ public class EventManager
 {
     public delegate void D_Void();
     public delegate void D_Int(int value);
+    public delegate void D_String(string value);
     public delegate void D_Float(float value);
     public delegate void D_GameState(GameManager.GameState state);
 
@@ -18,6 +19,8 @@ public class EventManager
     public static event D_Void onScoreChanged;
     public static event D_Void onGamePaused;
     public static event D_Float onTimerUpdated;
+    public static event D_String onAudioPlaySFX;
+    public static event D_String onAudioPlayBGM;
     public static event D_GameState onStateChanged;
 
     public static void LevelStart(int scene_index) { onLevelStart?.Invoke(scene_index); }
@@ -29,6 +32,9 @@ public class EventManager
     public static void ScoreChanged() { onScoreChanged?.Invoke(); }
     public static void GamePause() { onGamePaused?.Invoke(); }
     public static void TimerUpdated(float timer) { onTimerUpdated?.Invoke(timer); }
+
+    public static void PlayAudioSFX(string name) { onAudioPlaySFX?.Invoke(name); }
+    public static void PlayAudioBGM(string name) { onAudioPlayBGM?.Invoke(name); }
     public static void GameStateChanged(GameManager.GameState state) { onStateChanged?.Invoke(state); }
 
 }

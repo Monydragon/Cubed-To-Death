@@ -10,6 +10,20 @@ public class AudioManager : MonoBehaviour
     public AudioSource bgmSource;
     public AudioSource sfxSource;
 
+    public AudioClip Ui_Click;
+
+    private void OnEnable()
+    {
+        EventManager.onAudioPlaySFX += EventManager_onAudioPlaySFX;
+        EventManager.onAudioPlayBGM += EventManager_onAudioPlayBGM;
+    }
+
+    private void OnDisable()
+    {
+        EventManager.onAudioPlaySFX -= EventManager_onAudioPlaySFX;
+        EventManager.onAudioPlayBGM -= EventManager_onAudioPlayBGM;
+    }
+
     private void Awake()
     {
         if(instance == null)
@@ -105,5 +119,19 @@ public class AudioManager : MonoBehaviour
     {
         mixer.SetFloat("SFX", Mathf.Log10(vol) * 20);
         PlayerPrefs.SetFloat("SFX_Volume", Mathf.Log10(vol) * 20);
+    }
+
+    private void EventManager_onAudioPlayBGM(string value)
+    {
+
+    }
+
+    private void EventManager_onAudioPlaySFX(string value)
+    {
+        if (Ui_Click.name == value)
+        {
+            sfxSource.clip = Ui_Click;
+            sfxSource.Play();
+        }
     }
 }

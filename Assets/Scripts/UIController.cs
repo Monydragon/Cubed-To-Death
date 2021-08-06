@@ -161,4 +161,9 @@ public class UIController : MonoBehaviour
     {
         sfxSliderText.text = $"SFX: {Mathf.RoundToInt(sfxSlider.value * 100)}%";
     }
+
+    public void PlaySFX(string sfxName)
+    {
+        EventManager.PlayAudioSFX(sfxName);
+    }
 }
