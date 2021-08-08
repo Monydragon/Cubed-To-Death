@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using TMPro;
+using Newtonsoft.Json;
 
 public class HighscoresController : MonoBehaviour
 {
@@ -15,7 +16,47 @@ public class HighscoresController : MonoBehaviour
 
     private void OnEnable()
     {
-        EventManager.onHighscoreAdd += EventManager_onHighscoreAdd;    
+        EventManager.onHighscoreAdd += EventManager_onHighscoreAdd;
+
+        if (PlayerPrefs.HasKey("HighScores"))
+        {
+            highScores = JsonConvert.DeserializeObject<List<HighScore>>(PlayerPrefs.GetString("HighScores"));
+
+            for (int i = 0; i < contentPanel.transform.childCount; i++)
+            {
+                Destroy(contentPanel.transform.GetChild(i).gameObject);
+            }
+
+            for (int i = 0; i < highScores.Count; i++)
+            {
+                var rank = i + 1;
+                var rankText = "";
+
+                switch (rank)
+                {
+                    case 1:
+                        rankText = "1ST";
+                        break;
+                    case 2:
+                        rankText = "2ND";
+                        break;
+                    case 3:
+                        rankText = "3RD";
+                        break;
+                    default:
+                        rankText = rank + "TH";
+                        break;
+                }
+
+                rankPrefab.GetComponent<TMP_Text>().text = rankText;
+                scorePrefab.GetComponent<TMP_Text>().text = highScores[i].Score.ToString();
+                namePrefab.GetComponent<TMP_Text>().text = highScores[i].Name;
+                Instantiate(rankPrefab, contentPanel.transform);
+                Instantiate(scorePrefab, contentPanel.transform);
+                Instantiate(namePrefab, contentPanel.transform);
+            }
+        }
+
     }
 
     private void OnDisable()
@@ -25,16 +66,21 @@ public class HighscoresController : MonoBehaviour
 
     void Start()
     {
-        EventManager.HighscoreAdd("Mony", 500);
-        EventManager.HighscoreAdd("Dave", 50);
-        EventManager.HighscoreAdd("Justin", 150);
-        EventManager.HighscoreAdd("Anthony", 1000);
-
-        //highScores.Add(new HighScore{ Name = "Mony", Rank = "1St", Score = 5000});
-        //highScores.Add(new HighScore{ Name = "Dave", Rank = "2nd", Score = 3500});
-
-
-
+        //EventManager.HighscoreAdd("Mony", 500);
+        //EventManager.HighscoreAdd("Dave", 50);
+        //EventManager.HighscoreAdd("Justin", 150);
+        //EventManager.HighscoreAdd("Anthony", 1000);
+        //EventManager.HighscoreAdd("Richard", 1200);
+        //EventManager.HighscoreAdd("Niki", 1500);
+        //EventManager.HighscoreAdd("Arnold", 450);
+        //EventManager.HighscoreAdd("SuperName", 111);
+        //EventManager.HighscoreAdd("AAA", 100);
+        //EventManager.HighscoreAdd("Beth", 999);
+        //EventManager.HighscoreAdd("Rick", 45);
+        //EventManager.HighscoreAdd("Morty", 25);
+        //EventManager.HighscoreAdd("Meeseeks", 300);
+        //EventManager.HighscoreAdd("Cheese", 750);
+        //EventManager.HighscoreAdd("Johnny", 1450);
     }
 
     // Update is called once per frame
@@ -89,13 +135,16 @@ public class HighscoresController : MonoBehaviour
             Instantiate(namePrefab, contentPanel.transform);
         }
 
+        var hsjson = JsonConvert.SerializeObject(highScores);
+        PlayerPrefs.SetString("HighScores", hsjson);
+
     }
 
 }
 
 [System.Serializable]
-public struct HighScore
+public class HighScore
 {
-    public string Name { get; set; }
-    public int Score { get; set; }
+    public string Name;
+    public int Score;
 }
