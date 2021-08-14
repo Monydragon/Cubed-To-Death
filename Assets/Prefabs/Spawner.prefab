@@ -1474,10 +1474,12 @@ MonoBehaviour:
   - {fileID: 6834123555380708918}
   - {fileID: 8764622375380120041}
   - {fileID: 3284901853437664054}
-  spawnAmount: 1
+  spawnAmountMin: 5
+  spawnAmountMax: 10
   spawnPrefabs:
   - {fileID: 3522402405896084397, guid: 72a8e523fac448a41abc079e46a8dd42, type: 3}
-  - {fileID: 3522402405896084397, guid: 0650429d3e0e2da4d98c091d5f1c3f12, type: 3}
+  - {fileID: 5753542092954083182, guid: 6dde5e8a39748104980c7604542a0182, type: 3}
+  - {fileID: 3018129061872861557, guid: a67fc9bd32af42e4f863e1a8e9c42dfc, type: 3}
   constantSpawn: 1
   spawnTime: 2.5
 --- !u!1 &3862194524615283323

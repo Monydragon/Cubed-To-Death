@@ -167,6 +167,11 @@ public class UIController : MonoBehaviour
         EventManager.PlayAudioSFX(sfxName);
     }
 
+    public void PlayBGM(string bgmName)
+    {
+        EventManager.PlayAudioBGM(bgmName);
+    }
+
     public void SaveScoreToHighscores(string name)
     {
         EventManager.HighscoreAdd(name, GameManager.instance.score);

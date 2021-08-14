@@ -11,6 +11,7 @@ public class TimeHandler : MonoBehaviour
     private void OnEnable()
     {
         EventManager.onLevelFail += EventManager_onLevelFail;
+        EventManager.onTimerAddValue += EventManager_onTimerAddValue;
     }
 
 
@@ -18,7 +19,6 @@ public class TimeHandler : MonoBehaviour
     private void OnDisable()
     {
         EventManager.onLevelFail -= EventManager_onLevelFail;
-
     }
     // Update is called once per frame
     void Update()
@@ -43,5 +43,9 @@ public class TimeHandler : MonoBehaviour
     private void EventManager_onLevelFail(int value)
     {
         timeRunning = false;
+    }
+    private void EventManager_onTimerAddValue(float value)
+    {
+        timeRemaining += value;
     }
 }

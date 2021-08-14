@@ -24,6 +24,7 @@ public class EventManager
     public static event D_String onAudioPlayBGM;
     public static event D_GameState onStateChanged;
     public static event D_IntString onHighscoreAdd;
+    public static event D_Float onTimerAddValue;
 
     public static void LevelStart(int scene_index) { onLevelStart?.Invoke(scene_index); }
     public static void LevelFail(int scene_index) { onLevelFail?.Invoke(scene_index); }
@@ -38,5 +39,5 @@ public class EventManager
     public static void PlayAudioBGM(string name) { onAudioPlayBGM?.Invoke(name); }
     public static void GameStateChanged(GameManager.GameState state) { onStateChanged?.Invoke(state); }
     public static void HighscoreAdd(string name, int score) { onHighscoreAdd?.Invoke(score, name); }
-
+    public static void TimerAddValue(float timerVal) { onTimerAddValue?.Invoke(timerVal); }
 }

@@ -19,6 +19,7 @@ public class PowerCubeController : MonoBehaviour
             Debug.Log("Player Hit!");
             GameManager.instance.score += scoreValue;
             EventManager.ScoreChanged();
+            EventManager.PlayAudioSFX("CoinPickup");
             Destroy(gameObject);
         }
     }

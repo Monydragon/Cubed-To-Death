@@ -49,6 +49,12 @@ MonoBehaviour:
   bgmSource: {fileID: 3671423796536913959}
   sfxSource: {fileID: 3671423796536913958}
   Ui_Click: {fileID: 8300000, guid: a0887824cb34d464096a6c69de69b351, type: 3}
+  coinPickup: {fileID: 8300000, guid: 080201f57f428e840b32b50b81cb938f, type: 3}
+  cubeHit: {fileID: 8300000, guid: fd2db0927b5e39e4bad00b4493c59dd3, type: 3}
+  gameOver: {fileID: 8300000, guid: 0a98f05534805d34ca512932819bb58c, type: 3}
+  levelComplete: {fileID: 8300000, guid: cdcd510e496fd274ab41768dc90ac0cf, type: 3}
+  clockTick: {fileID: 8300000, guid: 94862728e620e7345a2202298a4d1c9e, type: 3}
+  bgmMain: {fileID: 8300000, guid: 1b511563eed0f184aac4ddb4c0cfa573, type: 3}
 --- !u!82 &3671423796536913959
 AudioSource:
   m_ObjectHideFlags: 0
@@ -59,11 +65,11 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: -3150571711742246144, guid: 9673129dd37b2304195252e271ecebb5, type: 2}
-  m_audioClip: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 1b511563eed0f184aac4ddb4c0cfa573, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0

@@ -67,6 +67,7 @@ public class GameManager : MonoBehaviour
     private void EventManager_onLevelFail(int value)
     {
         EventManager.GameStateChanged(GameState.GameOver);
+        EventManager.PlayAudioSFX("GameOver");
     }
 
     private void EventManager_onLevelStart(int value)
@@ -77,6 +78,7 @@ public class GameManager : MonoBehaviour
     private void EventManager_onLevelComplete(int value)
     {
         EventManager.GameStateChanged(GameState.LevelComplete);
+        EventManager.PlayAudioSFX("LevelComplete");
     }
 
     private void EventManager_onStateChanged(GameState state)

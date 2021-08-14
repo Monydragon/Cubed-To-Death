@@ -28,6 +28,8 @@ public class EnemyCubeController : MonoBehaviour
             EventManager.LevelFail(SceneManager.GetActiveScene().buildIndex);
             Debug.Log("Player Hit!");
             collision.gameObject.SetActive(false);
+            EventManager.PlayAudioSFX("CubeHit");
+
         }
     }
 

@@ -11,6 +11,13 @@ public class AudioManager : MonoBehaviour
     public AudioSource sfxSource;
 
     public AudioClip Ui_Click;
+    public AudioClip coinPickup;
+    public AudioClip cubeHit;
+    public AudioClip gameOver;
+    public AudioClip levelComplete;
+    public AudioClip clockTick;
+
+    public AudioClip bgmMain;
 
     private void OnEnable()
     {
@@ -123,15 +130,24 @@ public class AudioManager : MonoBehaviour
 
     private void EventManager_onAudioPlayBGM(string value)
     {
+        if(bgmMain.name == value)
+        {
+            bgmSource.clip = bgmMain;
+            bgmSource.loop = true;
+        }
 
+        bgmSource.Play();
     }
 
     private void EventManager_onAudioPlaySFX(string value)
     {
-        if (Ui_Click.name == value)
-        {
-            sfxSource.clip = Ui_Click;
-            sfxSource.Play();
-        }
+        if (Ui_Click.name == value) { sfxSource.clip = Ui_Click; }
+        if(coinPickup.name == value) { sfxSource.clip = coinPickup; }
+        if(cubeHit.name == value) { sfxSource.clip = cubeHit; }
+        if(gameOver.name == value) { sfxSource.clip = gameOver; }
+        if(levelComplete.name == value) { sfxSource.clip = levelComplete; }
+        if(clockTick.name == value) { sfxSource.clip = clockTick; }        
+
+        sfxSource.Play();
     }
 }
