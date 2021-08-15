@@ -162,6 +162,26 @@ public class UIController : MonoBehaviour
         sfxSliderText.text = $"SFX: {Mathf.RoundToInt(sfxSlider.value * 100)}%";
     }
 
+    public void SetSFXVolume(float vol)
+    {
+        AudioManager.instance.SetSFXVol(vol);
+    }
+
+    public void SetBGMVolume(float vol)
+    {
+        AudioManager.instance.SetBGMVol(vol);
+    }
+
+    public void MuteSFX(bool isMuted)
+    {
+        AudioManager.instance.ToggleMuteSFX(isMuted);
+    }
+
+    public void MuteBGM(bool isMuted)
+    {
+        AudioManager.instance.ToggleMuteBGM(isMuted);
+    }
+
     public void PlaySFX(string sfxName)
     {
         EventManager.PlayAudioSFX(sfxName);

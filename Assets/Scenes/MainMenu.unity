@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -123,17 +123,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!114 &777655133 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 3671423796536913956, guid: 8a2152360ab441042a58a996b4f3dd8d, type: 3}
-  m_PrefabInstance: {fileID: 3671423797837977234}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 63e1a19c99b2a9846842cda6affffd99, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1159475138
 GameObject:
   m_ObjectHideFlags: 0
@@ -528,14 +517,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2335582426356006917, guid: be66d58cef2124c4e9d8f5c07b8c3436, type: 3}
-      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 777655133}
-    - target: {fileID: 2335582426452777875, guid: be66d58cef2124c4e9d8f5c07b8c3436, type: 3}
-      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 777655133}
     - target: {fileID: 2335582427113634474, guid: be66d58cef2124c4e9d8f5c07b8c3436, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -562,26 +543,30 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2335582427207769014, guid: be66d58cef2124c4e9d8f5c07b8c3436, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2335582427207769014, guid: be66d58cef2124c4e9d8f5c07b8c3436, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2335582427207769014, guid: be66d58cef2124c4e9d8f5c07b8c3436, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 0
+      value: 383.8858
       objectReference: {fileID: 0}
     - target: {fileID: 2335582427207769014, guid: be66d58cef2124c4e9d8f5c07b8c3436, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 0
+      value: 148.14854
       objectReference: {fileID: 0}
     - target: {fileID: 2335582427207769014, guid: be66d58cef2124c4e9d8f5c07b8c3436, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 191.9429
       objectReference: {fileID: 0}
     - target: {fileID: 2335582427207769014, guid: be66d58cef2124c4e9d8f5c07b8c3436, type: 3}
       propertyPath: m_AnchoredPosition.y
+      value: -548.5199
+      objectReference: {fileID: 0}
+    - target: {fileID: 2335582427207769015, guid: be66d58cef2124c4e9d8f5c07b8c3436, type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2335582427453967807, guid: be66d58cef2124c4e9d8f5c07b8c3436, type: 3}
@@ -608,14 +593,6 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2335582427478602703, guid: be66d58cef2124c4e9d8f5c07b8c3436, type: 3}
-      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 777655133}
-    - target: {fileID: 2335582427799829484, guid: be66d58cef2124c4e9d8f5c07b8c3436, type: 3}
-      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 777655133}
     - target: {fileID: 8245122989382929225, guid: be66d58cef2124c4e9d8f5c07b8c3436, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
