@@ -7,6 +7,7 @@ public class PlayerMovement : MonoBehaviour
     public float speed = 5f;
     public Vector3 movement;
     public Rigidbody rb;
+    public VariableJoystick joystick;
 
     private void OnEnable()
     {
@@ -23,6 +24,7 @@ public class PlayerMovement : MonoBehaviour
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();
+        joystick = GameObject.FindGameObjectWithTag("Joystick").GetComponent<VariableJoystick>();
     }
     // Start is called before the first frame update
     void Start()
@@ -33,8 +35,16 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        movement.x = Input.GetAxisRaw("Horizontal");
-        movement.z = Input.GetAxisRaw("Vertical");
+        if (joystick != null && joystick.Direction.x != 0 || joystick.Direction.y != 0)
+        {
+            movement.x = joystick.Horizontal;
+            movement.z = joystick.Vertical;
+        }
+        else
+        {
+            movement.x = Input.GetAxisRaw("Horizontal");
+            movement.z = Input.GetAxisRaw("Vertical");
+        }
 
         if (Input.GetKeyDown(KeyCode.Escape))
         {

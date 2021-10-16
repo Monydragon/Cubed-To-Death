@@ -22,6 +22,7 @@ public class UIController : MonoBehaviour
     public Toggle sfxMuteToggle;
     public TMP_Text bgmSliderText;
     public TMP_Text sfxSliderText;
+    public GameObject joystickGameobject;
 
     private void OnEnable()
     {
@@ -194,6 +195,14 @@ public class UIController : MonoBehaviour
 
     public void SaveScoreToHighscores(string name)
     {
-        EventManager.HighscoreAdd(name, GameManager.instance.score);
+        if (!string.IsNullOrEmpty(name))
+        {
+            EventManager.HighscoreAdd(name, GameManager.instance.score);
+        }
+    }
+
+    public void ToggleJoystick(bool isenabled)
+    {
+        joystickGameobject.SetActive(isenabled);
     }
 }
