@@ -7,6 +7,7 @@ public class EnemyCubeController : MonoBehaviour
 {
     public float despawnTimer = 3f;
     public int scoreValue = 5;
+    public int damage = 1;
 
     // Start is called before the first frame update
     void Start()
@@ -25,10 +26,12 @@ public class EnemyCubeController : MonoBehaviour
     {
         if(collision.gameObject.tag == "Player")
         {
-            EventManager.LevelFail(SceneManager.GetActiveScene().buildIndex);
+            EventManager.PlayerHurt(damage);
+            //EventManager.LevelFail(SceneManager.GetActiveScene().buildIndex);
             Debug.Log("Player Hit!");
-            collision.gameObject.SetActive(false);
+            //collision.gameObject.SetActive(false);
             EventManager.PlayAudioSFX("CubeHit");
+            Destroy(gameObject);
 
         }
     }
