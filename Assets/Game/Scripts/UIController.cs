@@ -23,6 +23,8 @@ public class UIController : MonoBehaviour
     public TMP_Text bgmSliderText;
     public TMP_Text sfxSliderText;
     public GameObject joystickGameobject;
+    public Image[] heartImages;
+    public PlayerStatus playerStatus;
 
     private void OnEnable()
     {
@@ -31,6 +33,9 @@ public class UIController : MonoBehaviour
         EventManager.onLevelComplete += EventManager_onLevelComplete;
         EventManager.onScoreChanged += EventManager_onScoreChanged;
         EventManager.onGamePaused += EventManager_onGamePaused;
+        EventManager.onPlayerHurt += EventManager_onPlayerHurt;
+        EventManager.onPlayerHeal += EventManager_onPlayerHeal;
+        EventManager.onPlayerHealthChanged += EventManager_onPlayerHealthChanged;
     }
 
 
@@ -42,6 +47,9 @@ public class UIController : MonoBehaviour
         EventManager.onLevelComplete -= EventManager_onLevelComplete;
         EventManager.onScoreChanged -= EventManager_onScoreChanged;
         EventManager.onGamePaused -= EventManager_onGamePaused;
+        EventManager.onPlayerHurt -= EventManager_onPlayerHurt;
+        EventManager.onPlayerHeal -= EventManager_onPlayerHeal;
+        EventManager.onPlayerHealthChanged += EventManager_onPlayerHealthChanged;
     }
 
 
@@ -86,6 +94,8 @@ public class UIController : MonoBehaviour
     {
         SceneManager.LoadScene("Level1");
         GameManager.instance.score = 0;
+        EventManager.GameReset();
+        EventManager.PlayerHeal(10);
         EventManager.ScoreChanged();
         EventManager.LevelStart(SceneManager.GetActiveScene().buildIndex);
         Debug.Log($"Score Set: {GameManager.instance.score}");
@@ -204,5 +214,49 @@ public class UIController : MonoBehaviour
     public void ToggleJoystick(bool isenabled)
     {
         joystickGameobject.SetActive(isenabled);
+    }
+
+    private void EventManager_onPlayerHurt(int value)
+    {
+        for (int i = 0; i < heartImages.Length; i++)
+        {
+            if (i < playerStatus.Health - value)
+            {
+                heartImages[i].color = Color.white;
+            }
+            else
+            {
+                heartImages[i].color = Color.black;
+            }
+        }
+    }
+
+    private void EventManager_onPlayerHeal(int value)
+    {
+        for (int i = 0; i < heartImages.Length; i++)
+        {
+            if (i < playerStatus.Health + value)
+            {
+                heartImages[i].color = Color.white;
+            }
+            else
+            {
+                heartImages[i].color = Color.black;
+            }
+        }
+    }
+    private void EventManager_onPlayerHealthChanged()
+    {
+        for (int i = 0; i < heartImages.Length; i++)
+        {
+            if (i < playerStatus.Health)
+            {
+                heartImages[i].color = Color.white;
+            }
+            else
+            {
+                heartImages[i].color = Color.black;
+            }
+        }
     }
 }

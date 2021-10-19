@@ -14,11 +14,15 @@ public class EventManager
     public static event D_Int onLevelStart;
     public static event D_Int onLevelFail;
     public static event D_Int onLevelComplete;
+    public static event D_Int onPlayerHurt;
+    public static event D_Int onPlayerHeal;
+    public static event D_Void onPlayerHealthChanged;
     public static event D_Void onGameComplete;
     public static event D_Void onCurrentLevelRestart;
     public static event D_Void onAllLevelsRestart;
     public static event D_Void onScoreChanged;
     public static event D_Void onGamePaused;
+    public static event D_Void onGameReset;
     public static event D_Float onTimerUpdated;
     public static event D_String onAudioPlaySFX;
     public static event D_String onAudioPlayBGM;
@@ -29,11 +33,15 @@ public class EventManager
     public static void LevelStart(int scene_index) { onLevelStart?.Invoke(scene_index); }
     public static void LevelFail(int scene_index) { onLevelFail?.Invoke(scene_index); }
     public static void LevelComplete(int scene_index) { onLevelComplete?.Invoke(scene_index); }
+    public static void PlayerHurt(int damage) { onPlayerHurt?.Invoke(damage); }
+    public static void PlayerHeal(int amount) { onPlayerHeal?.Invoke(amount); }
+    public static void PlayerHealthChanged() { onPlayerHealthChanged?.Invoke(); }
     public static void GameComplete() { onGameComplete?.Invoke(); }
     public static void RestartCurrentLevel() { onCurrentLevelRestart?.Invoke(); }
     public static void RestartAllLevels() { onAllLevelsRestart?.Invoke(); }
     public static void ScoreChanged() { onScoreChanged?.Invoke(); }
     public static void GamePause() { onGamePaused?.Invoke(); }
+    public static void GameReset() { onGameReset?.Invoke(); }
     public static void TimerUpdated(float timer) { onTimerUpdated?.Invoke(timer); }
     public static void PlayAudioSFX(string name) { onAudioPlaySFX?.Invoke(name); }
     public static void PlayAudioBGM(string name) { onAudioPlayBGM?.Invoke(name); }
