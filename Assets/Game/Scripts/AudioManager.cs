@@ -16,6 +16,7 @@ public class AudioManager : MonoBehaviour
     public AudioClip gameOver;
     public AudioClip levelComplete;
     public AudioClip clockTick;
+    public AudioClip healthPickup;
 
     public AudioClip bgmMain;
 
@@ -146,7 +147,8 @@ public class AudioManager : MonoBehaviour
         if(cubeHit.name == value) { sfxSource.clip = cubeHit; }
         if(gameOver.name == value) { sfxSource.clip = gameOver; }
         if(levelComplete.name == value) { sfxSource.clip = levelComplete; }
-        if(clockTick.name == value) { sfxSource.clip = clockTick; }        
+        if(clockTick.name == value) { sfxSource.clip = clockTick; }  
+        if(healthPickup.name == value) { sfxSource.clip = healthPickup; }
 
         sfxSource.Play();
     }

@@ -18,7 +18,7 @@ public class HealthPowerupController : MonoBehaviour
         {
             Debug.Log("Player Hit!");
             EventManager.PlayerHeal(healthValue);
-            EventManager.PlayAudioSFX("CoinPickup");
+            EventManager.PlayAudioSFX("HealthPickup");
             Destroy(gameObject);
         }
     }
