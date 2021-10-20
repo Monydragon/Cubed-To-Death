@@ -66,21 +66,7 @@ public class HighscoresController : MonoBehaviour
 
     void Start()
     {
-        //EventManager.HighscoreAdd("Mony", 500);
-        //EventManager.HighscoreAdd("Dave", 50);
-        //EventManager.HighscoreAdd("Justin", 150);
-        //EventManager.HighscoreAdd("Anthony", 1000);
-        //EventManager.HighscoreAdd("Richard", 1200);
-        //EventManager.HighscoreAdd("Niki", 1500);
-        //EventManager.HighscoreAdd("Arnold", 450);
-        //EventManager.HighscoreAdd("SuperName", 111);
-        //EventManager.HighscoreAdd("AAA", 100);
-        //EventManager.HighscoreAdd("Beth", 999);
-        //EventManager.HighscoreAdd("Rick", 45);
-        //EventManager.HighscoreAdd("Morty", 25);
-        //EventManager.HighscoreAdd("Meeseeks", 300);
-        //EventManager.HighscoreAdd("Cheese", 750);
-        //EventManager.HighscoreAdd("Johnny", 1450);
+
     }
 
     // Update is called once per frame
