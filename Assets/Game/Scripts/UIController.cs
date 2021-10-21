@@ -216,6 +216,11 @@ public class UIController : MonoBehaviour
         joystickGameobject.SetActive(isenabled);
     }
 
+    public void PauseGame()
+    {
+        EventManager.GamePause();
+    }
+
     private void EventManager_onPlayerHurt(int value)
     {
         for (int i = 0; i < heartImages.Length; i++)

@@ -8,6 +8,7 @@ public class EventManager
     public delegate void D_Int(int value);
     public delegate void D_String(string value);
     public delegate void D_Float(float value);
+    public delegate void D_Bool(bool value);
     public delegate void D_GameState(GameManager.GameState state);
     public delegate void D_IntString(int value, string value2);
 

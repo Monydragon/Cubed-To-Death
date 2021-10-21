@@ -14,8 +14,6 @@ public class PlayerMovement : MonoBehaviour
         EventManager.onLevelFail += EventManager_onLevelFail;
     }
 
-    
-
     private void OnDisable()
     {
         EventManager.onLevelFail -= EventManager_onLevelFail;
@@ -42,8 +40,13 @@ public class PlayerMovement : MonoBehaviour
         }
         else
         {
+#if UNITY_ANDROID
+            movement.x = Input.acceleration.x;
+            movement.z = Input.acceleration.y;
+#else
             movement.x = Input.GetAxisRaw("Horizontal");
             movement.z = Input.GetAxisRaw("Vertical");
+#endif
         }
 
         if (Input.GetKeyDown(KeyCode.Escape))
